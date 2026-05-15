@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fioretta Jewelry – Coming Soon</title>
+
+  <link rel="icon" type="image/png" href="images/home/icon.png" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%23c8b89a'/><text x='50%25' y='56%25' dominant-baseline='middle' text-anchor='middle' font-size='32' fill='%23fff' font-family='Georgia'>F</text></svg>" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --sand:  #e2d9ce;
+      --dark:  #231f1b;
+      --white: #faf8f5;
+      --soft-grey: #d1cbc3;
+      --nav-h: 70px;
+      --serif: 'Playfair Display', Georgia, serif;
+      --sans:  'Jost', sans-serif;
+      --side-pad: clamp(1.2rem, 4vw, 3rem);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body { 
+      font-family: var(--sans); 
+      background: var(--sand); 
+      color: var(--dark); 
+      overflow: hidden; 
+    }
+
+    /* ═══════════ NAV ═══════════ */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      height: var(--nav-h);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 var(--side-pad);
+    }
+    
+    .nav-logo {
+      height: 40px;
+      display: flex; align-items: center;
+      transition: opacity 0.3s;
+    }
+    .nav-logo img { height: 100%; width: auto; }
+    .nav-logo:hover { opacity: 0.7; }
+
+    .nav-links {
+      display: flex; gap: clamp(1.5rem, 3vw, 3rem);
+      font-size: .68rem; font-weight: 300;
+      letter-spacing: .22em; text-transform: uppercase;
+    }
+    /* Menüpunkte explizit in Weiß */
+    .nav-links a { 
+      text-decoration: none; 
+      color: var(--white); 
+      transition: opacity .3s; 
+    }
+    .nav-links a:hover { opacity: 0.6; }
+
+    /* Trennstrich */
+    .hero-rule {
+      position: absolute; top: var(--nav-h); left: var(--side-pad); right: var(--side-pad);
+      height: 1px;
+      background: rgba(255,255,255,.32);
+      z-index: 10;
+    }
+
+    /* ═══════════ MAIN CONTENT ═══════════ */
+    .maintenance-wrapper {
+      position: relative;
+      width: 100%;
+      height: 100svh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: var(--side-pad);
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(35,31,27,.2) 0%, transparent 50%, rgba(35,31,27,.2) 100%);
+      z-index: 1;
+    }
+
+    .content {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Font weight zurück auf 900 und Farbe Weiß */
+    h1 {
+      font-family: var(--serif);
+      font-weight: 900;
+      font-size: clamp(2.5rem, 8vw, 6rem);
+      line-height: 1.1;
+      letter-spacing: -.02em;
+      color: var(--white);
+      text-transform: lowercase;
+      max-width: 1000px;
+      animation: fadeIn 1.5s ease-out forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="images/home/icon.png" alt="Home" onerror="this.style.display='none'" />
+  </a>
+  <div class="nav-links">
+    <a href="index.html#about">About</a>
+    <a href="index.html#products">Products</a>
+    <a href="https://www.etsy.com/shop/fioretta" target="_blank">Shop</a>
+    <a href="https://www.instagram.com/fioretta.jewelry" target="_blank">Inspiration</a>
+  </div>
+</nav>
+
+<div class="hero-rule"></div>
+
+<main class="maintenance-wrapper">
+  <div class="overlay"></div>
+  
+  <div class="content">
+    <h1>we're building right now. come back soon 🤍</h1>
+  </div>
+</main>
+
+</body>
+</html>

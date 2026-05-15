@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <title>Fioretta Jewelry – Necklaces, Bracelets, Ohrringe - Handmade in München</title>
+  <meta name="description" content="Fioretta Jewelry – handgefertigter Schmuck für unvergessliche Momente. Ohrringe, Ketten und Armbänder. Individuelle Kreationen auf Anfrage." />
+  <meta name="keywords" content="handgefertigter Schmuck, Ohrringe, Ketten, Armbänder, individuelle Schmuckkreation, Goldschmuck, Fioretta Jewelry" />
+  <meta name="author" content="Fioretta Jewelry" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.fioretta.de/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.fioretta.de/" />
+  <meta property="og:title" content="Fioretta Jewelry – jewelry that makes you bloom from within" />
+  <meta property="og:description" content="Handgefertigter Schmuck für unvergessliche Momente. Ohrringe, Ketten und Armbänder." />
+  <meta property="og:image" content="/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"JewelryStore","name":"Fioretta Jewelry","description":"Handgefertigter Schmuck – Ohrringe, Ketten, Armbänder und individuelle Kreationen auf Anfrage.","url":"https://www.fioretta.de","email":"beispiel@fioretta.de","sameAs":["https://www.instagram.com/fioretta.jewelry","https://www.etsy.com/shop/fioretta"]}
+  </script>
+
+  <link rel="icon" type="image/png" href="images/home/icon.png" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%23c8b89a'/><text x='50%25' y='56%25' dominant-baseline='middle' text-anchor='middle' font-size='32' fill='%23fff' font-family='Georgia'>F</text></svg>" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --cream: #f0ebe3;
+      --sand:  #e2d9ce;
+      --taupe: #c4b5a0;
+      --dark:  #231f1b;
+      --mid:   #7a6e64;
+      --white: #faf8f5;
+      --soft-grey: #d1cbc3;
+      --nav-h: 70px; /* Leicht erhöht für Text-Nav */
+      --serif: 'Playfair Display', Georgia, serif;
+      --sans:  'Jost', sans-serif;
+      --side-pad: clamp(1.2rem, 4vw, 3rem);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--sans); background: var(--white); color: var(--dark); overflow-x: hidden; }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ═══════════ NAV (Neu: Textlinks rechts) ═══════════ */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      height: var(--nav-h);
+      display: flex; align-items: center; justify-content: space-between; /* Geändert für Logo-Abstand */
+      padding: 0 var(--side-pad);
+      transition: background .4s, backdrop-filter .4s;
+    }
+    nav.solid {
+      background: rgba(240,235,227,0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(196,181,160,.25);
+    }
+    
+    /* Logo Link oben links */
+    .nav-logo {
+      height: 40px; /* Größe des Icons in der Nav */
+      display: flex;
+      align-items: center;
+      transition: opacity 0.3s;
+    }
+    .nav-logo img { height: 100%; width: auto; }
+    .nav-logo:hover { opacity: 0.7; }
+
+    .nav-links {
+      display: flex; gap: clamp(1.5rem, 3vw, 3rem);
+      font-size: .68rem; font-weight: 300;
+      letter-spacing: .22em; text-transform: uppercase;
+      color: var(--white);
+    }
+    nav.solid .nav-links { color: var(--dark); }
+    .nav-links a { transition: opacity .3s; }
+    .nav-links a:hover { opacity: 0.6; }
+
+    /* ═══════════ HERO ═══════════ */
+    #hero {
+      position: relative; min-height: 100svh;
+      display: flex; flex-direction: column; overflow: hidden;
+      background-color: var(--sand);
+    }
+    .hero-bg { position: absolute; inset: 0; z-index: 0; }
+    .hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+    .hero-overlay {
+      position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(180deg, rgba(35,31,27,.3) 0%, transparent 45%, rgba(35,31,27,.4) 100%);
+    }
+
+    .hero-rule {
+      position: relative; z-index: 2;
+      margin-top: var(--nav-h);
+      height: 1px;
+      background: rgba(255,255,255,.32);
+      margin-left: var(--side-pad);
+      margin-right: var(--side-pad);
+    }
+
+    /* Logo Styling */
+    .hero-brand {
+      position: relative; z-index: 2;
+      padding: clamp(1rem, 2.5vw, 2rem) var(--side-pad) 0;
+    }
+    .hero-brand img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .hero-claim {
+      position: relative; z-index: 2;
+      font-family: var(--serif); font-weight: 400; 
+      font-size: clamp(1.2rem, 3vw, 2.2rem);
+      color: rgba(255,255,255,.9);
+      padding: .4rem var(--side-pad) 0;
+      text-transform: lowercase;
+    }
+
+    .hero-bottom {
+      position: relative; z-index: 2;
+      flex: 1; display: flex;
+      align-items: flex-end;
+      padding: 0 var(--side-pad) clamp(2rem, 4vh, 3.5rem);
+    }
+    .hero-col-text h2 {
+      font-family: var(--serif); font-weight: 400;
+      font-size: clamp(2rem, 4vw, 3.5rem); color: var(--white); margin-bottom: .8rem;
+    }
+    .hero-col-text p {
+      font-size: .85rem; font-weight: 300; line-height: 1.8;
+      color: rgba(255,255,255,.8); max-width: 480px; margin-bottom: 1.8rem;
+    }
+
+    .pill {
+      display: inline-flex; align-items: center; gap: .55rem;
+      background: transparent; color: var(--white);
+      font-family: var(--sans); font-size: .68rem; font-weight: 300;
+      letter-spacing: .2em; text-transform: uppercase;
+      padding: .65rem 1.5rem; border-radius: 100px;
+      border: 1px solid rgba(255,255,255,.45); cursor: pointer;
+      transition: all .3s;
+    }
+    .pill:hover { background: rgba(255,255,255,.15); gap: .85rem; }
+    .pill svg { width: 12px; height: 12px; }
+    
+    /* Farbeffekt Angleichung für About Button */
+    .pill-dark { color: var(--dark); border-color: var(--taupe); }
+    .pill-dark:hover { background: rgba(0,0,0,0.03) !important; color: var(--dark); }
+
+    /* ═══════════ ABOUT ═══════════ */
+    #about {
+      display: grid; grid-template-columns: 1fr 1fr; min-height: 70vh;
+      background: var(--white);
+    }
+    .about-left {
+      padding: clamp(3rem, 7vw, 6rem) var(--side-pad);
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .bg-hl {
+      font-family: var(--serif); font-weight: 900;
+      line-height: .86; letter-spacing: -.02em;
+      color: var(--soft-grey); pointer-events: none; user-select: none;
+    }
+    .about-left .bg-hl { font-size: clamp(4.5rem, 13vw, 10rem); margin-bottom: 2.2rem; }
+    .about-body p { font-size: .84rem; font-weight: 300; line-height: 2; color: var(--mid); margin-bottom: 1.2rem; max-width: 420px; }
+    
+    .about-right { position: relative; overflow: hidden; display: flex; align-items: flex-end; }
+    .about-right img {
+      width: 100%; height: 80%; object-fit: cover; object-position: center top;
+    }
+
+    /* ═══════════ PRODUCTS (Mit Trennstrich & Clickable Area) ═══════════ */
+    #products { position: relative; background: var(--white); padding: clamp(3rem, 6vw, 5.5rem) 0 0; }
+    #products .bg-hl { font-size: clamp(3rem, 11vw, 9rem); padding: 0 var(--side-pad); margin-bottom: 3rem; }
+    
+    .prod-grid { display: grid; grid-template-columns: repeat(3, 1fr); position: relative; }
+    
+    /* Der gewünschte Trennstrich über den Bildern */
+    .prod-rule {
+      position: absolute; top: 4.5rem; left: var(--side-pad); right: var(--side-pad);
+      height: 1px; background: rgba(255,255,255,0.6); z-index: 15; pointer-events: none;
+    }
+
+    .prod-col { position: relative; overflow: hidden; display: block; /* Ganzflächig klickbar */ }
+    .prod-img { position: relative; aspect-ratio: 3/4; overflow: hidden; background: var(--sand); }
+    .prod-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s cubic-bezier(0.2, 1, 0.3, 1); }
+    .prod-col:hover .prod-img img { transform: scale(1.06); }
+
+    .prod-header {
+      position: absolute; top: 1.5rem; left: var(--side-pad); right: 1.5rem; z-index: 10;
+    }
+    .prod-label {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-family: var(--serif); font-size: clamp(1.2rem, 2vw, 1.8rem);
+      color: var(--white); text-transform: uppercase;
+    }
+    .prod-label svg { width: 18px; height: 18px; transition: transform .3s; }
+    .prod-col:hover .prod-label svg { transform: translateX(5px); }
+
+    /* ═══════════ CONTACT ═══════════ */
+    #contact {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
+      padding: clamp(4rem, 9vw, 8rem) var(--side-pad);
+      background: var(--white);
+    }
+    .contact-left .bg-hl { font-size: clamp(4rem, 12vw, 9rem); color: var(--soft-grey); }
+    
+    .contact-form { display: flex; flex-direction: column; gap: 1.5rem; max-width: 400px; }
+    .form-group { border-bottom: 1px solid var(--taupe); padding-bottom: 0.5rem; }
+    .form-group label { display: block; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--mid); margin-bottom: 0.3rem; }
+    .form-group input, .form-group textarea {
+      width: 100%; border: none; background: transparent; font-family: var(--sans); font-size: 0.9rem; outline: none; color: var(--dark);
+    }
+    .contact-right .pill { align-self: flex-start; width: fit-content; }
+
+    /* ═══════════ FOOTER ═══════════ */
+    footer {
+      background: var(--sand);
+      padding: 2rem var(--side-pad);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .foot-copy, .foot-links a { font-size: .63rem; font-weight: 300; letter-spacing: .16em; color: var(--mid); }
+    .foot-links { display: flex; align-items: center; gap: 1.5rem; }
+    .foot-links a:hover { color: var(--dark); }
+    .foot-insta svg { width: 14px; height: 14px; vertical-align: middle; }
+
+    .fade { opacity: 0; transform: translateY(20px); transition: opacity .7s ease, transform .7s ease; }
+    .fade.in { opacity: 1; transform: none; }
+
+    @media (max-width: 860px) {
+      #about, #contact { grid-template-columns: 1fr; }
+      .about-right { min-height: 200px; }
+      .prod-grid { grid-template-columns: 1fr; }
+      .prod-rule { display: none; }
+      .hero-rule { margin-left: 1.2rem; margin-right: 1.2rem; }
+      .nav-links { gap: 1rem; font-size: 0.6rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav id="mainNav">
+  <a href="index.html" class="nav-logo">
+    <img src="images/home/icon.png" alt="Home" onerror="this.style.display='none'" />
+  </a>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#products">Products</a>
+    <a href="building.html" target="_blank">Shop</a>
+    <a href="https://www.instagram.com/fioretta.jewelry" target="_blank">Inspiration</a>
+  </div>
+</nav>
+
+<section id="hero">
+  <div class="hero-bg"><img src="images/home/hero.jpg" alt="" onerror="this.style.opacity=0" /></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-rule"></div>
+
+  <h1 class="hero-brand">
+    <img src="images/home/logo.png" alt="Fioretta Jewelry" />
+  </h1>
+  <p class="hero-claim">bloom from within</p>
+
+  <div class="hero-bottom">
+    <div class="hero-col-text fade">
+      <p>Dein Soft Armor für jeden Tag: Schmuck, der Deine innere Stärke widerspiegelt und Dich ermutigt, sie zu leben.</p>
+      <a href="building.html" class="pill">Jetzt entdecken <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 6h8M6 2l4 4-4 4"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="about-left">
+    <div class="bg-hl fade">about<br>me</div>
+    <div class="about-body">
+      <p class="fade">Für mich war Schmuck immer schon mehr als ein Accessoire. Für mich ist er Ausdruck meiner Stimmung, meiner Überzeugungen und meiner inneren Stärke.</p>
+  <p class="fade">Ich glaube fest daran, dass wir alle einzigartige Geschichten haben, die es wert sind, erzählt zu werden. Und was wäre schöner, als diese Geschichten mit Schmuck zu Ausdruck zu bringen? Genau das möchte ich Dir ermöglichen: mit Kreationen, die Deine Persönlichkeit unterstreichen, Dich in Deiner Individualität stärken und Dir dabei helfen, deine innere Kraft zu zeigen. Meine Kreationen sind bewusst so gestaltet, dass sie leicht und angenehm zu tragen sind – eine subtile Erinnerung daran, dass Du Du bist, egal was der Tag bringt.</p>
+      <p class="fade">Auf diese Weise soll <i>fioretta</i> mehr sein als ein Label – es ist eine Gemeinschaft von Menschen, die sich trauen, authentisch zu sein, ihre eigene Stimme zu finden und ihre innere Stärke zu leben. Ich möchte Dich dazu inspirieren, Dich zu zeigen und mit Stolz in die Welt zu gehen. Denn Du bist mehr als genug – und Dein Schmuck spiegelt genau das wider.</p>
+      <a href="building.html" class="pill pill-dark fade">Mehr erfahren <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 6h8M6 2l4 4-4 4"/></svg></a>
+    </div>
+  </div>
+  <div class="about-right">
+    <img src="images/home/about.jpg" alt="About Fioretta" onerror="this.style.opacity=0" />
+  </div>
+</section>
+
+<section id="products">
+  <h2 class="bg-hl fade">products</h2>
+  <div class="prod-grid">
+    <div class="prod-rule"></div>
+    
+    <a href="building.html" target="_blank" class="prod-col fade">
+      <div class="prod-header">
+        <div class="prod-label">Earrings <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 6h8M6 2l4 4-4 4"/></svg></div>
+      </div>
+      <div class="prod-img"><img src="images/home/earrings.jpg" alt="Earrings" loading="lazy" /></div>
+    </a>
+
+    <a href="building.html" target="_blank" class="prod-col fade">
+      <div class="prod-header">
+        <div class="prod-label">Necklaces <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 6h8M6 2l4 4-4 4"/></svg></div>
+      </div>
+      <div class="prod-img"><img src="images/home/necklaces.jpg" alt="Necklaces" loading="lazy" /></div>
+    </a>
+
+    <a href="building.html" target="_blank" class="prod-col fade">
+      <div class="prod-header">
+        <div class="prod-label">Bracelets <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 6h8M6 2l4 4-4 4"/></svg></div>
+      </div>
+      <div class="prod-img"><img src="images/home/bracelets.jpg" alt="Bracelets" loading="lazy" /></div>
+    </a>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact-left">
+    <div class="bg-hl fade">get in<br>touch</div>
+  </div>
+  <div class="contact-right">
+    <form class="contact-form fade" action="mailto:hello@fioretta.de" method="post" enctype="text/plain">
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" name="name" required>
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea name="message" rows="3" required></textarea>
+      </div>
+      <button type="submit" class="pill pill-dark">Absenden <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 6h8M6 2l4 4-4 4"/></svg></button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <p class="foot-copy">© 2026, Fioretta Jewelry</p>
+  <div class="foot-links">
+    <a href="https://www.instagram.com/fioretta.jewelry" target="_blank" class="foot-insta">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5.5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"/></svg>
+    </a>
+    <a href="impressum.html">Impressum</a>
+  </div>
+</footer>
+
+<script>
+const mainNav = document.getElementById('mainNav'), heroEl = document.getElementById('hero');
+function syncNav() { mainNav.classList.toggle('solid', heroEl.getBoundingClientRect().bottom < 60); }
+window.addEventListener('scroll', syncNav, { passive: true }); syncNav();
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); observer.unobserve(e.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
