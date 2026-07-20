@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <title>Über mich – Fioretta Jewelry</title>
+  <meta name="description" content="Lerne die Person hinter Fioretta Jewelry kennen: die Geschichte, die Werte und die Vision hinter handgefertigtem Schmuck, der Dich ermutigt, Dein inneres Aufblühen zu zeigen." />
+  <meta name="keywords" content="Fioretta Jewelry, über uns, handgefertigter Schmuck, Markengeschichte, Goldschmiede München" />
+  <meta name="author" content="Fioretta Jewelry" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.fioretta.de/about.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.fioretta.de/about.html" />
+  <meta property="og:title" content="Über mich – Fioretta Jewelry" />
+  <meta property="og:description" content="Lerne die Person hinter Fioretta Jewelry kennen: die Geschichte, die Werte und die Vision hinter handgefertigtem Schmuck." />
+  <meta property="og:image" content="/og-image.jpg" />
+  <meta property="og:site_name" content="Fioretta Jewelry" />
+  <meta property="og:locale" content="de_DE" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Über mich – Fioretta Jewelry" />
+  <meta name="twitter:description" content="Lerne die Person hinter Fioretta Jewelry kennen." />
+
+  <!-- Mobile / Apple / PWA -->
+  <meta name="theme-color" content="#f0ebe3" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Fioretta Jewelry" />
+  <meta name="format-detection" content="telephone=no" />
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"AboutPage","name":"Über mich – Fioretta Jewelry","url":"https://www.fioretta.de/about.html","mainEntity":{"@type":"Organization","name":"Fioretta Jewelry","url":"https://www.fioretta.de","sameAs":["https://www.instagram.com/fioretta.jewelry","https://www.etsy.com/shop/fioretta"]}}
+  </script>
+
+  <link rel="icon" type="image/png" href="images/home/icon.png" />
+  <link rel="apple-touch-icon" href="images/home/icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --cream: #faf8f5;
+      --sand:  #f2eee8;
+      --taupe: #c4b5a0;
+      --dark:  #231f1b;
+      --mid:   #7a6e64;
+      --white: #faf8f5;
+      --soft-grey: #d1cbc3;
+      --placeholder: #6f6a63;
+      --nav-h: 70px;
+      --serif: 'Playfair Display', Georgia, serif;
+      --sans:  'Jost', sans-serif;
+      --side-pad: clamp(1.2rem, 4vw, 3rem);
+      --content-w: calc(100vw - 2 * var(--side-pad));
+      --inset-w: calc((var(--content-w) - 2 * clamp(1rem, 3vw, 2rem)) * 1.3 / 3.3);
+      --inset-h: calc(var(--inset-w) * 4.6 / 3);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--sans); background: var(--white); color: var(--dark); overflow-x: hidden; }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+
+    /* NAV (solid, wie auf der Produktseite) */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      height: var(--nav-h);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 var(--side-pad);
+      background: rgba(250,248,245,0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .nav-logo { height: 38px; display: flex; align-items: center; }
+    .nav-logo img { height: 100%; width: auto; transition: opacity 0.3s; }
+    .nav-logo:hover img { opacity: 0.6; }
+    .nav-logo img.img-missing { display: none; }
+    .nav-logo:has(img.img-missing)::after {
+      content: 'fioretta';
+      display: flex; align-items: center;
+      height: 38px;
+      font-family: var(--serif);
+      font-weight: 700;
+      font-size: 1.3rem;
+      letter-spacing: .01em;
+      color: var(--dark);
+      white-space: nowrap;
+    }
+    .nav-links {
+      display: flex; gap: clamp(1.5rem, 3vw, 3rem);
+      font-size: .68rem; font-weight: 300;
+      letter-spacing: .22em; text-transform: uppercase;
+      color: var(--dark); margin-left: auto;
+    }
+    .nav-links a { transition: opacity .3s; }
+    .nav-links a:hover { opacity: 0.55; }
+    .nav-links a.active { font-weight: 400; opacity: 1; }
+
+    .fade { opacity: 0; transform: translateY(20px); transition: opacity .7s ease, transform .7s ease; }
+    .fade.in { opacity: 1; transform: none; }
+
+    .bg-hl {
+      font-family: var(--serif); font-weight: 900;
+      line-height: .86; letter-spacing: -.02em;
+      color: var(--soft-grey); pointer-events: none; user-select: none;
+    }
+
+    .pill {
+      display: inline-flex; align-items: center; gap: .55rem;
+      background: transparent; color: var(--dark);
+      font-family: var(--sans); font-size: .68rem; font-weight: 300;
+      letter-spacing: .2em; text-transform: uppercase;
+      padding: .65rem 1.5rem; border-radius: 100px;
+      border: 1px solid var(--taupe); cursor: pointer;
+      transition: all .3s;
+    }
+    .pill:hover { background: rgba(0,0,0,0.03); gap: .85rem; }
+    .pill svg { width: 12px; height: 12px; }
+
+    /* Alle Bildplatzhalter erhalten dieselbe, gut sichtbare Füllfarbe,
+       solange keine echte Bild-URL eingesetzt wurde */
+    .ph-fill { background: var(--placeholder); }
+    .ph-fill img { transition: opacity .3s; }
+
+    /* ══════════════════════════════════════════
+       MODUL 1 – INTRO: Bild links, Farbfläche mit Zitat rechts
+    ══════════════════════════════════════════ */
+    #intro {
+      margin-top: var(--nav-h);
+      background: var(--white);
+      padding: clamp(1.5rem, 4vw, 3rem) var(--side-pad) 0;
+    }
+    .intro-split {
+      position: relative;
+      display: grid; grid-template-columns: 1fr 1fr;
+      min-height: max(320px, 42vw);
+      margin-bottom: clamp(3rem, 6vw, 5rem);
+      overflow: hidden;
+    }
+    .intro-media { overflow: hidden; }
+    .intro-media img { width: 100%; height: 100%; object-fit: cover; }
+    .intro-color { background: var(--sand); }
+
+    .intro-quote {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 3;
+      width: 82%;
+      padding: clamp(1.8rem, 4vw, 2.8rem) clamp(2rem, 5vw, 3rem);
+      text-align: center;
+    }
+    .intro-quote p {
+      font-family: var(--serif); font-weight: 400;
+      font-size: max(2.7rem, 5vw);
+      line-height: 1.4; color: var(--dark);
+    }
+    .intro-quote p em { font-style: italic; color: var(--dark); }
+
+    /* ══════════════════════════════════════════
+       ZENTRIERTE HL + COPY (einspaltig) – wird 2x verwendet
+    ══════════════════════════════════════════ */
+    .centered-copy {
+      max-width: 720px; margin: 0 auto;
+      text-align: center;
+    }
+    .centered-copy h2 {
+      font-family: var(--serif); font-weight: 900;
+      font-size: clamp(1.6rem, 4vw, 2.6rem);
+      line-height: 1.25; letter-spacing: .01em;
+      text-transform: uppercase;
+      color: var(--dark);
+      margin-bottom: 1.6rem;
+    }
+    .centered-copy p {
+      font-size: .88rem; font-weight: 300; line-height: 1.7;
+      color: var(--mid); max-width: 560px; margin: 0 auto;
+    }
+
+    /* ══════════════════════════════════════════
+       MODUL 2 – zentrierte HL/Copy + Bild / großes Bild / Text
+    ══════════════════════════════════════════ */
+    #module-2 {
+      background: var(--white);
+      padding: clamp(3rem, 7vw, 5.5rem) var(--side-pad) clamp(4rem, 8vw, 6.5rem);
+    }
+    #module-2 .centered-copy { margin-bottom: clamp(3rem, 6vw, 5rem); }
+
+    .gallery-row {
+      display: grid; grid-template-columns: 1fr 1.3fr 1fr;
+      gap: clamp(1rem, 3vw, 2rem);
+      align-items: end;
+    }
+    .gallery-img { overflow: hidden; }
+    .gallery-img img { width: 100%; height: 100%; object-fit: cover; }
+    .gallery-img.lg { aspect-ratio: 3 / 4.4; }
+
+    /* Linke/rechte Spalte strecken sich über die volle Zeilenhöhe (= Höhe des
+       mittleren Bildes), der eigentliche Inhalt sitzt aber nur in den oberen
+       80% davon – so endet die "untere Linie" bewusst ein Stück vor dem
+       unteren Rand des mittleren Bildes ("off"). */
+    .gallery-side { align-self: stretch; display: flex; flex-direction: column; }
+    .gallery-side.img-col { justify-content: center; }
+    .gallery-img.sm {
+      flex: 0 0 60%;
+      overflow: hidden;
+      margin: 0 clamp(.5rem, 2vw, 1rem) 0 clamp(1rem, 3vw, 2rem);
+    }
+    .gallery-img.sm img { height: 100%; }
+    .gallery-text {
+      flex: 0 0 80%;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      margin: 0 clamp(1rem, 3vw, 2rem) 0 clamp(.5rem, 2vw, 1rem);
+    }
+    .gallery-text p {
+      font-size: .88rem; font-weight: 300; line-height: 1.7; color: var(--mid);
+    }
+
+    /* ══════════════════════════════════════════
+       MODUL 3 – Texturhintergrund mit auskragendem Bild-Inset
+    ══════════════════════════════════════════ */
+    #mission {
+      background: var(--white);
+      padding: 0 var(--side-pad);
+    }
+    .mission-visual {
+      position: relative;
+      padding: clamp(3rem, 8vw, 5.5rem) 0 0;
+      overflow: visible;
+    }
+    .mission-visual-bg {
+      position: relative;
+      aspect-ratio: 21 / 9;
+      overflow: hidden;
+    }
+    .mission-visual-bg img { width: 100%; height: 100%; object-fit: cover; }
+
+    .mission-inset {
+      position: absolute; left: 50%; bottom: 0; z-index: 2;
+      transform: translate(-50%, 50%);
+      width: var(--inset-w);
+      height: var(--inset-h);
+      overflow: hidden;
+    }
+    .mission-inset img { width: 100%; height: 100%; object-fit: cover; }
+
+    .mission-lower {
+      position: relative; z-index: 1;
+      background: var(--sand);
+      padding-top: calc(var(--inset-h) / 2 + clamp(1.5rem, 4vw, 2.5rem));
+      padding-bottom: clamp(4rem, 9vw, 7rem);
+    }
+
+    #mission .centered-copy { margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+
+    .mission-split-panel {
+      padding: clamp(2.5rem, 6vw, 4rem) clamp(1.5rem, 4vw, 2.5rem);
+    }
+
+    /* Gespiegelt zu Modul 2: Text links, großes hohes Bild in der Mitte,
+       kleineres Bild zentriert rechts – exakt dieselbe Grid-/Flex-Logik
+       wie .gallery-row, dadurch kein Skalierungsproblem mehr. */
+    .mission-split {
+      display: grid; grid-template-columns: 1fr 1.3fr 1fr;
+      gap: clamp(1rem, 3vw, 2rem);
+      align-items: end;
+    }
+    .mission-split-imgs { display: contents; }
+
+    .mission-split-text {
+      align-self: stretch;
+      display: flex; flex-direction: column;
+    }
+    .mission-split-text-inner {
+      flex: 0 0 80%;
+      display: flex; flex-direction: column; justify-content: flex-end;
+    }
+    .mission-split-text p {
+      font-size: .84rem; font-weight: 300; line-height: 1.7; color: var(--mid);
+      max-width: 440px;
+    }
+
+    .img-large { aspect-ratio: 3 / 4.4; overflow: hidden; }
+
+    .img-small-col { align-self: stretch; display: flex; flex-direction: column; justify-content: center; }
+    .img-small { flex: 0 0 60%; overflow: hidden; }
+
+    .mission-split-imgs img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* ══════════════════════════════════════════
+       CONTACT (aus index.html übernommen)
+    ══════════════════════════════════════════ */
+    #contact {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
+      padding: clamp(4rem, 9vw, 8rem) var(--side-pad);
+      background: var(--white);
+    }
+    .contact-left .bg-hl { font-size: clamp(4rem, 12vw, 9rem); }
+    .contact-form { display: flex; flex-direction: column; gap: 1.5rem; max-width: 400px; }
+    .form-group { border-bottom: 1px solid var(--taupe); padding-bottom: 0.5rem; }
+    .form-group label { display: block; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--mid); margin-bottom: 0.3rem; }
+    .form-group input, .form-group textarea {
+      width: 100%; border: none; background: transparent; font-family: var(--sans); font-size: 0.9rem; outline: none; color: var(--dark);
+    }
+    .contact-right button { border: 1px solid var(--taupe); background: none; cursor: pointer; }
+    .contact-right .pill { align-self: flex-start; width: fit-content; }
+
+    /* FOOTER (aus index.html übernommen) */
+    footer {
+      background: var(--white);
+      padding: 2rem var(--side-pad);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .foot-copy, .foot-links a { font-size: .63rem; font-weight: 300; letter-spacing: .16em; color: var(--mid); }
+    .foot-links { display: flex; align-items: center; gap: 1.5rem; }
+    .foot-links a:hover { color: var(--dark); }
+    .foot-insta svg { width: 14px; height: 14px; vertical-align: middle; }
+
+    @media (max-width: 860px) {
+      /* ---- MODUL 1: Text/Farbfläche oben, Bild darunter ---- */
+      .intro-split { display: flex; flex-direction: column; min-height: auto; margin-bottom: clamp(2.5rem, 8vw, 3.5rem); }
+      .intro-media { aspect-ratio: 4/3; order: 2; }
+      .intro-color { display: none; }
+      .intro-quote {
+        position: static; transform: none; z-index: auto;
+        width: 100%; background: var(--sand);
+        padding: 2.2rem 1.5rem;
+        order: 1;
+      }
+
+      /* ---- MODUL 2: alle Elemente einfach übereinander, luftig ---- */
+      .gallery-row { display: block; }
+      .gallery-side { height: auto; }
+      .gallery-side.img-col { justify-content: normal; }
+      .gallery-img.sm {
+        flex: none; aspect-ratio: 4/3;
+        margin: 0 0 clamp(1.5rem, 6vw, 2rem);
+      }
+      .gallery-img.sm img { height: 100%; }
+      .gallery-img.lg { aspect-ratio: 4/3; margin-bottom: clamp(1.5rem, 6vw, 2rem); }
+      .gallery-text { flex: none; justify-content: normal; margin: 0; }
+
+      /* ---- MODUL 3: Trennerbild, dann Portrait-Bild normal darunter
+             (moderat statt extrem hochformatig, kein Herausragen mehr) ---- */
+      .mission-inset {
+        position: static; transform: none; z-index: auto;
+        width: 100%; height: auto; aspect-ratio: 4/3;
+        margin: clamp(1.5rem, 6vw, 2rem) 0 0;
+      }
+      .mission-lower { padding-top: clamp(2.5rem, 8vw, 4rem); }
+      .mission-split-panel { padding: 2rem 1.2rem; }
+      .mission-split { grid-template-columns: 1fr; }
+      .mission-split-text { height: auto; margin: 0; order: 2; justify-self: stretch; }
+      .mission-split-text-inner { flex: none; }
+      .mission-split-imgs { order: 1; display: block; }
+
+      /* die beiden unten überlappenden Bilder werden zu zwei normalen,
+         moderat beschnittenen Bildern übereinander */
+      .mission-split-imgs { position: static; height: auto; }
+      .mission-split-imgs .img-large,
+      .mission-split-imgs .img-small {
+        position: static; width: 100%; height: auto;
+        aspect-ratio: 4/3;
+      }
+      .mission-split-imgs .img-large { margin-bottom: clamp(1rem, 4vw, 1.5rem); }
+      .mission-split-imgs .img-small { margin-bottom: clamp(1.5rem, 6vw, 2rem); }
+
+      #contact { grid-template-columns: 1fr; }
+      .nav-links { gap: 1rem; font-size: 0.6rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="images/home/logo_sw.png" alt="Fioretta Jewelry" onerror="this.classList.add('img-missing')" />
+  </a>
+  <div class="nav-links">
+    <a href="about.html" class="active">About</a>
+    <a href="shop.html">Shop</a>
+    <a href="https://www.instagram.com/fioretta.jewelry" target="_blank">Inspiration</a>
+  </div>
+</nav>
+
+<!-- MODUL 1 – INTRO: Bild links, Farbfläche mit Zitat rechts -->
+<section id="intro">
+  <div class="intro-split fade">
+    <div class="intro-media ph-fill">
+      <img src="images/about/portrait.webp" alt="Porträt" onerror="this.style.display='none'" />
+    </div>
+    <div class="intro-color"></div>
+    <div class="intro-quote">
+      <p>HI, ICH BIN<br>ANTONIA, GRÜNDERIN<br>VON <em>fioretta</em></p>
+    </div>
+  </div>
+</section>
+
+<!-- MODUL 2 – zentrierte HL/Copy + Bild / großes Bild / Text -->
+<section id="module-2">
+  <div class="centered-copy fade">
+    <h2>Ein Power-up<br>für jeden Tag</h2>
+    <p>Schmuck war für mich immer ein Anker. Eine Erinnerung an meine Stärke an herausfordernden Tagen. Ein kleiner Verbündeter, der dabei hilft, bei mir zu bleiben – oder anderen eine Stütze zu sein. Deshalb habe ich nach 20 Jahren, in denen ich für mich und Freundinnen Schmuck hergestellt habe, fioretta gegründet. Ein Label, mit dem ich andere von innen und außen strahlen lassen möchte. Entdecke meine Kreationen, die zugleich als sichtbares und unsichtbares Zeichen innerer Kraft sind.</p>
+  </div>
+
+  <div class="gallery-row">
+    <div class="gallery-side img-col fade">
+      <div class="gallery-img sm ph-fill">
+        <img src="images/about/lifestyle2_sw.webp" alt="" onerror="this.style.display='none'" />
+      </div>
+    </div>
+    <div class="gallery-img lg ph-fill fade" style="transition-delay:.08s">
+      <img src="images/about/lifestyle2_co.webp" alt="" onerror="this.style.display='none'" />
+    </div>
+    <div class="gallery-side fade" style="transition-delay:.16s">
+      <div class="gallery-text">
+        <p>Meine Kreationen vereinen langlebige Materialien mit einem federleichten Tragegefühl. Sie sind so konzipiert, dass sie Dich stützen, ohne Dich zu beschweren – eine subtile, elegante Erinnerung daran, dass Du genau richtig bist, so wie Du bist.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MODUL 3 – Texturhintergrund mit auskragendem Bild-Inset -->
+<section id="mission">
+  <div class="mission-visual">
+    <div class="mission-visual-bg ph-fill fade">
+      <img src="images/about/atelier1.webp" alt="" onerror="this.style.display='none'" />
+    </div>
+    <div class="mission-inset ph-fill">
+      <img src="images/about/lifestyle1_sw.webp" alt="" onerror="this.style.display='none'" />
+    </div>
+  </div>
+
+  <div class="mission-lower">
+    <div class="centered-copy fade">
+      <h2>Mit Hingabe hand-<br>gefertigte Kreationen<br>aus München Neuhausen</h2>
+      <p>In meiner Arbeit verbinde ich Absicht und Handwerk. Jede Kreation wird in sorgfältiger Handarbeit gefertigt, wobei ich besonders auf die Haptik und die Balance der Materialien achte. Wichtig ist mir außerdem, dass meine Kreationen mit einem echten Statement verbunden sind. Das erfordert Zeit und Fokus – nur so entsteht am Ende ein Stück, das Deine Intention für den Tag perfekt einfängt.</p>
+    </div>
+
+    <div class="mission-split-panel">
+      <div class="mission-split">
+        <div class="mission-split-text fade">
+          <div class="mission-split-text-inner">
+            <p>fioretta steht für Authentizität, Stärke und Leichtigkeit – damit ist das Label ein Ort für alle, die ihre Stimme finden und mit Stolz ihren eigenen Weg gehen wollen.</p>
+          </div>
+        </div>
+        <div class="mission-split-imgs fade" style="transition-delay:.1s">
+          <div class="img-large ph-fill">
+            <img src="images/about/atelier2.webp" alt="" onerror="this.style.display='none'" />
+          </div>
+          <div class="img-small-col">
+            <div class="img-small ph-fill">
+              <img src="images/about/atelier3.webp" alt="" onerror="this.style.display='none'" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact-left">
+    <div class="bg-hl fade">get in<br>touch</div>
+  </div>
+  <div class="contact-right">
+    <form id="contact-form" class="contact-form fade" action="https://formspree.io/f/mzdolwyp" method="POST">
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" name="name" required>
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" name="_replyto" required>
+      </div>
+      <div class="form-group">
+        <label>Nachricht</label>
+        <textarea name="message" rows="3" required></textarea>
+      </div>
+
+      <input type="text" name="_gotcha" style="display:none">
+
+      <button id="form-submit" type="submit" class="pill">Absenden <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 6h8M6 2l4 4-4 4"/></svg></button>
+
+      <p id="form-status" style="margin-top: 1.5rem; font-size: 0.8rem; display: none;"></p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <p class="foot-copy">© 2026, Fioretta Jewelry</p>
+  <div class="foot-links">
+    <a href="https://www.instagram.com/fioretta.jewelry" target="_blank" class="foot-insta">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5.5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"/></svg>
+    </a>
+    <a href="impressum.html">Impressum</a>
+  </div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); observer.unobserve(e.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade').forEach(el => observer.observe(el));
+
+const form = document.getElementById("contact-form");
+const status = document.getElementById("form-status");
+const button = document.getElementById("form-submit");
+
+async function handleSubmit(event) {
+  event.preventDefault();
+  const data = new FormData(event.target);
+
+  button.style.opacity = "0.5";
+  button.innerHTML = 'Sende...';
+
+  fetch(event.target.action, {
+    method: form.method,
+    body: data,
+    headers: { 'Accept': 'application/json' }
+  }).then(response => {
+    if (response.ok) {
+      status.style.display = "block";
+      status.style.color = "#7a6e64";
+      status.innerHTML = "Vielen Dank! Deine Nachricht wurde erfolgreich verschickt.";
+      form.reset();
+      button.style.display = "none";
+    } else {
+      response.json().then(data => {
+        status.style.display = "block";
+        status.style.color = "red";
+        if (Object.hasOwn(data, 'errors')) {
+          status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
+        } else {
+          status.innerHTML = "Hoppla! Da gab es ein Problem beim Senden.";
+        }
+      })
+    }
+  }).catch(error => {
+    status.style.display = "block";
+    status.style.color = "red";
+    status.innerHTML = "Hoppla! Es gab ein Verbindungsproblem.";
+  });
+}
+form.addEventListener("submit", handleSubmit);
+</script>
+
+</body>
+</html>

@@ -137,7 +137,7 @@
       font-size: clamp(2rem, 4vw, 3.5rem); color: var(--white); margin-bottom: .8rem;
     }
     .hero-col-text p {
-      font-size: .85rem; font-weight: 300; line-height: 1.8;
+      font-size: 1.2rem; font-weight: 300; line-height: 1.8;
       color: rgba(255,255,255,.8); max-width: 480px; margin-bottom: 1.8rem;
     }
 
@@ -180,7 +180,17 @@
 
     /* PRODUCTS */
     #products { position: relative; background: var(--white); padding: clamp(3rem, 6vw, 5.5rem) 0 0; }
-    #products .bg-hl { font-size: clamp(3rem, 11vw, 9rem); padding: 0 var(--side-pad); margin-bottom: 3rem; }
+#products .bg-hl {
+    font-size: clamp(3rem, 11vw, 9rem);
+    padding: 0 var(--side-pad);
+    margin-bottom: 3rem;
+    position: relative;
+    z-index: 100;
+}
+#products .bg-hl a {
+    display: inline-block;
+    pointer-events: auto;
+}
     
     .prod-grid { display: grid; grid-template-columns: repeat(3, 1fr); position: relative; }
     
@@ -253,9 +263,8 @@
     <img src="images/home/icon.png" alt="Home" onerror="this.style.display='none'" />
   </a>
   <div class="nav-links">
-    <a href="#about">About</a>
-    <a href="#products">Products</a>
-    <a href="building.html" target="_blank">Shop</a>
+    <a href="about.html">About</a>
+    <a href="shop.html">Shop</a>
     <a href="https://www.instagram.com/fioretta.jewelry" target="_blank">Inspiration</a>
   </div>
 </nav>
@@ -272,8 +281,8 @@
 
   <div class="hero-bottom">
     <div class="hero-col-text fade">
-      <p>Dein Soft Armor für jeden Tag: Schmuck, der Deine innere Stärke widerspiegelt und Dich ermutigt, sie zu leben.</p>
-      <a href="building.html" class="pill">Jetzt entdecken <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 6h8M6 2l4 4-4 4"/></svg></a>
+      <p>Dein Power-up für jeden Tag: Schmuck, der Deine innere Stärke widerspiegelt und Dich ermutigt, sie zu leben.</p>
+      <a href="shop.html" class="pill">Jetzt entdecken <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 6h8M6 2l4 4-4 4"/></svg></a>
     </div>
   </div>
 </section>
@@ -283,40 +292,39 @@
     <div class="bg-hl fade">about<br>me</div>
     <div class="about-body">
       <p class="fade">Schmuck war für mich immer schon mehr als ein Accessoire. Für mich ist er Ausdruck meiner Stimmung, meiner Überzeugungen und meiner inneren Stärke.</p>
-      <p class="fade">Ich glaube fest daran, dass wir alle einzigartige Geschichten haben, die es wert sind, erzählt zu werden. Und was wäre schöner, als diese Geschichten mit Schmuck zum Ausdruck zu bringen? Genau das möchte ich Dir ermöglichen: mit Kreationen, die Deine Persönlichkeit unterstreichen, Dich in Deiner Individualität stärken und Dir dabei helfen, deine innere Kraft zu zeigen. Meine Kreationen sind bewusst so gestaltet, dass sie leicht und angenehm zu tragen sind – eine subtile Erinnerung daran, dass Du Du bist, egal was der Tag bringt.</p>
-      <p class="fade">Auf diese Weise soll <i>fioretta</i> mehr sein als ein Label – es ist eine Gemeinschaft von Menschen, die sich trauen, authentisch zu sein, ihre eigene Stimme zu finden und ihre innere Stärke zu leben. Ich möchte Dich dazu inspirieren, Dich zu zeigen und mit Stolz in die Welt zu gehen. Denn Du bist mehr als genug – und Dein Schmuck spiegelt genau das wider.</p>
-      <a href="building.html" class="pill pill-dark fade">Mehr erfahren <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 6h8M6 2l4 4-4 4"/></svg></a>
+      <p class="fade">Deshalb habe ich <i>fioretta</i> gegründet. Ein Label, das mit seinen Kreationen Deine Persönlichkeit unterstreichen, Dich in Deiner Individualität stärken und Dir dabei helfen soll, Deine innere Kraft zu zeigen. Leicht und angenehm zu tragen – als subtile Erinnerung daran, dass Du Du bist, egal was der Tag bringt.</p>
+      <a href="about.html" class="pill pill-dark fade">Mehr erfahren <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 6h8M6 2l4 4-4 4"/></svg></a>
     </div>
   </div>
   <div class="about-right">
-    <img src="images/home/about.jpg" alt="About Fioretta" onerror="this.style.opacity=0" />
+    <img src="images/home/portrait.webp" alt="About Fioretta" onerror="this.style.opacity=0" />
   </div>
 </section>
 
 <section id="products">
-  <h2 class="bg-hl fade">products</h2>
+  <h2 class="bg-hl fade"><a href="shop.html">collections</a></h2>
   <div class="prod-grid">
     <div class="prod-rule"></div>
     
-    <a href="building.html" target="_blank" class="prod-col fade">
+    <a href="shop.html?collection=hearts" class="prod-col fade">
       <div class="prod-header">
-        <div class="prod-label">Earrings <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 6h8M6 2l4 4-4 4"/></svg></div>
+        <div class="prod-label">Hearts <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 6h8M6 2l4 4-4 4"/></svg></div>
       </div>
-      <div class="prod-img"><img src="images/home/earrings.jpg" alt="Earrings" loading="lazy" /></div>
+      <div class="prod-img"><img src="images/shop/hearts/necklace_minihearts_gold/necklace_minihearts_gold_plain2.webp" alt="Earrings" loading="lazy" /></div>
     </a>
 
-    <a href="building.html" target="_blank" class="prod-col fade">
+    <a href="shop.html?collection=flora" class="prod-col fade">
       <div class="prod-header">
-        <div class="prod-label">Necklaces <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 6h8M6 2l4 4-4 4"/></svg></div>
+        <div class="prod-label">Flora <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 6h8M6 2l4 4-4 4"/></svg></div>
       </div>
-      <div class="prod-img"><img src="images/home/necklaces.jpg" alt="Necklaces" loading="lazy" /></div>
+      <div class="prod-img"><img src="images/shop/flora/earrings_flower/earrings_flower_plain.webp" alt="Necklaces" loading="lazy" /></div>
     </a>
 
-    <a href="building.html" target="_blank" class="prod-col fade">
+    <a href="shop.html?collection=fauna" class="prod-col fade">
       <div class="prod-header">
-        <div class="prod-label">Bracelets <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 6h8M6 2l4 4-4 4"/></svg></div>
+        <div class="prod-label">Fauna <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 6h8M6 2l4 4-4 4"/></svg></div>
       </div>
-      <div class="prod-img"><img src="images/home/bracelets.jpg" alt="Bracelets" loading="lazy" /></div>
+      <div class="prod-img"><img src="images/shop/fauna/necklace_seashell/necklace_seashell_plain2.webp" alt="Bracelets" loading="lazy" /></div>
     </a>
   </div>
 </section>

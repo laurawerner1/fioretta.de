@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <title>Shop – Fioretta Jewelry</title>
+  <meta name="description" content="Entdecke handgefertigten Schmuck von Fioretta Jewelry. Ohrringe, Ketten und Armbänder – jedes Stück ein Unikat." />
+
+  <link rel="icon" type="image/png" href="images/home/icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --cream:     #f0ebe3;
+      --sand:      #e2d9ce;
+      --taupe:     #c4b5a0;
+      --dark:      #231f1b;
+      --mid:       #7a6e64;
+      --white:     #faf8f5;
+      --soft-grey: #d1cbc3;
+      --nav-h:     70px;
+      --serif:     'Playfair Display', Georgia, serif;
+      --sans:      'Jost', sans-serif;
+      --side-pad:  clamp(1.2rem, 4vw, 3rem);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--sans); background: var(--white); color: var(--dark); overflow-x: hidden; }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      height: var(--nav-h);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 var(--side-pad);
+      background: var(--white);
+      /* kein border-bottom */
+    }
+
+    .nav-logo {
+      height: 38px;
+      display: flex;
+      align-items: center;
+    }
+    /* Normales Logo-Bild */
+    .nav-logo img {
+      height: 100%; width: auto;
+      display: block;
+      transition: opacity 0.3s;
+    }
+    .nav-logo:hover img { opacity: 0.6; }
+
+    /* Sichtbarer Platzhalter, wenn logo.png noch nicht vorhanden */
+    .nav-logo img.img-missing {
+      display: none;
+    }
+    .nav-logo:has(img.img-missing)::after {
+      content: 'fioretta logo';
+      display: flex; align-items: center;
+      height: 38px;
+      padding: 0 .8rem;
+      font-family: var(--sans);
+      font-size: .6rem;
+      font-weight: 300;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--mid);
+      border: 1px dashed var(--taupe);
+      border-radius: 3px;
+      white-space: nowrap;
+    }
+
+    /* Menü rechts */
+    .nav-links {
+      display: flex;
+      gap: clamp(1.5rem, 3vw, 3rem);
+      font-family: var(--sans);
+      font-size: .68rem;
+      font-weight: 300;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--dark);
+      margin-left: auto;   /* drückt Menü hart nach rechts */
+    }
+    .nav-links a { transition: opacity .3s; }
+    .nav-links a:hover { opacity: 0.55; }
+    .nav-links a.active { font-weight: 400; opacity: 1; }
+
+    /* ── ABSTAND UNTER NAV ── */
+    .shop-spacer {
+      height: calc(var(--nav-h) + clamp(2.5rem, 5vw, 4.5rem));
+    }
+
+    /* ── FILTER ── */
+    .filter-area {
+      padding: 0 var(--side-pad);
+    }
+
+    .filter-bar {
+      display: flex;
+      align-items: center;
+      gap: clamp(1.2rem, 2.5vw, 2.5rem);
+    }
+
+    .filter-btn {
+      font-family: var(--sans);
+      font-size: .62rem;
+      font-weight: 300;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--dark);      /* immer schwarz */
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: opacity .2s;
+    }
+    .filter-btn.active {
+      font-weight: 700;        /* aktiv = fett */
+    }
+    .filter-btn:not(.active) { opacity: .55; }
+    .filter-btn:not(.active):hover { opacity: 1; }
+
+    /* Einleitungstext unter dem Filter */
+    .shop-intro {
+      margin-top: clamp(1rem, 2vw, 1.6rem);
+      font-family: var(--sans);
+      font-size: .8rem;
+      font-weight: 300;
+      line-height: 1.85;
+      color: var(--mid);
+      max-width: 560px;
+      /* ← Platzhaltertext hier ersetzen */
+    }
+
+    /* ── PRODUCT GRID ──
+       Außenkanten des Grids fluchten mit var(--side-pad),
+       also bündig mit Filter-Text und Nav-Logo.
+       Der Abstand zwischen den Karten kommt über column-gap / row-gap. */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      column-gap: clamp(.8rem, 1.5vw, 1.4rem);
+      row-gap: clamp(1.6rem, 3vw, 2.5rem);
+      padding: clamp(2rem, 4vw, 3rem) var(--side-pad) clamp(3rem, 6vw, 5rem);
+    }
+
+    .product-card {
+      /* kein inner padding – Bilder schließen bündig an Rasterkanten an */
+      padding: 0;
+      display: block;
+      cursor: pointer;
+    }
+
+    /* Quadratisches Bild mit Hover-Wechsel */
+    .product-img-wrap {
+      position: relative;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      background: var(--cream);
+    }
+    .product-img-wrap img {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: opacity .65s ease, transform .85s cubic-bezier(0.2, 1, 0.3, 1);
+    }
+    .product-img-wrap .img-primary { opacity: 1; z-index: 2; }
+    .product-img-wrap .img-hover   { opacity: 0; z-index: 1; }
+
+    .product-card:hover .img-primary { opacity: 0; transform: scale(1.04); }
+    .product-card:hover .img-hover   { opacity: 1; }
+
+    /* Produktinfos: serienloses Schrift, fett, klein */
+    .product-info { padding: .65rem 0 0; }
+
+    .product-name {
+      font-family: var(--sans);
+      font-size: .6rem;
+      font-weight: 400;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--dark);
+      margin-bottom: .25rem;
+    }
+    .product-price {
+      font-family: var(--sans);
+      font-size: .6rem;
+      font-weight: 400;
+      letter-spacing: .1em;
+      color: var(--dark);
+      display: flex; align-items: center; gap: .5rem;
+    }
+    .product-price .was {
+      color: var(--taupe);
+      text-decoration: line-through;
+    }
+
+    /* Filter: ausgeblendete Karten */
+    .product-card.hidden { display: none; }
+
+    /* ── CONTACT / GET IN TOUCH ── (von index.html) */
+    #contact {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      padding: clamp(4rem, 9vw, 8rem) var(--side-pad);
+      background: var(--white);
+    }
+    .contact-left .bg-hl {
+      font-family: var(--serif);
+      font-weight: 900;
+      line-height: .86;
+      letter-spacing: -.02em;
+      font-size: clamp(4rem, 12vw, 9rem);
+      color: var(--soft-grey);
+      pointer-events: none;
+      user-select: none;
+    }
+    .contact-form {
+      display: flex; flex-direction: column; gap: 1.5rem; max-width: 400px;
+    }
+    .form-group { border-bottom: 1px solid var(--taupe); padding-bottom: 0.5rem; }
+    .form-group label {
+      display: block;
+      font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--mid); margin-bottom: 0.3rem;
+    }
+    .form-group input,
+    .form-group textarea {
+      width: 100%; border: none; background: transparent;
+      font-family: var(--sans); font-size: 0.9rem; outline: none; color: var(--dark);
+    }
+    .contact-right button { border: 1px solid var(--taupe); background: none; cursor: pointer; }
+    .contact-right .pill { align-self: flex-start; width: fit-content; }
+
+    .pill {
+      display: inline-flex; align-items: center; gap: .55rem;
+      background: transparent; color: var(--dark);
+      font-family: var(--sans); font-size: .68rem; font-weight: 300;
+      letter-spacing: .2em; text-transform: uppercase;
+      padding: .65rem 1.5rem; border-radius: 100px;
+      border: 1px solid var(--taupe); cursor: pointer;
+      transition: all .3s;
+    }
+    .pill:hover { background: rgba(0,0,0,0.03); gap: .85rem; }
+    .pill svg { width: 12px; height: 12px; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--sand);
+      padding: 2rem var(--side-pad);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .foot-copy, .foot-links a {
+      font-size: .63rem; font-weight: 300; letter-spacing: .16em; color: var(--mid);
+    }
+    .foot-links { display: flex; align-items: center; gap: 1.5rem; }
+    .foot-links a:hover { color: var(--dark); }
+    .foot-insta svg { width: 14px; height: 14px; vertical-align: middle; }
+
+    /* ── FADE-IN ── */
+    .fade { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
+    .fade.in { opacity: 1; transform: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      .product-grid { grid-template-columns: repeat(2, 1fr); }
+      #contact { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 500px) {
+      .product-grid { grid-template-columns: 1fr; }
+      .nav-links { gap: 1rem; font-size: 0.6rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════ NAV ═══════════ -->
+<nav>
+  <!--
+    ╔══════════════════════════════════════════════════════════╗
+    ║  LOGO-PLATZHALTER                                        ║
+    ║  Lege dein Fioretta-Schriftzug-Bild unter:              ║
+    ║      images/home/logo.png                                ║
+    ║  Das Bild wird dann automatisch hier angezeigt.          ║
+    ║  Solange die Datei fehlt, ist ein grauer Platzhalter     ║
+    ║  mit der Aufschrift „fioretta logo" sichtbar.            ║
+    ╚══════════════════════════════════════════════════════════╝
+  -->
+  <a href="index.html" class="nav-logo">
+    <img
+      src="images/home/logo_sw.png"
+      alt="Fioretta Jewelry"
+      onerror="this.classList.add('img-missing')"
+    />
+  </a>
+
+  <div class="nav-links">
+    <a href="about.html">About</a>
+    <a href="shop.html" class="active">Shop</a>
+    <a href="https://www.instagram.com/fioretta.jewelry" target="_blank">Inspiration</a>
+  </div>
+</nav>
+
+
+<!-- ═══════════ ABSTAND + FILTER ═══════════ -->
+<div class="shop-spacer"></div>
+
+<div class="filter-area">
+  <div class="filter-bar">
+    <button class="filter-btn active" data-filter="all">All Collections</button>
+    <button class="filter-btn" data-filter="hearts">Hearts</button>
+    <button class="filter-btn" data-filter="flora">Flora</button>
+    <button class="filter-btn" data-filter="fauna">Fauna</button>
+  </div>
+
+  <!--
+    EINLEITUNGSTEXT: Hier kurzen Beschreibungstext einfügen.
+    Dieser Text wechselt automatisch je nach aktiver Kollektion (siehe JS unten).
+    Du kannst die Texte direkt im JS-Block am Ende der Seite anpassen.
+  -->
+  <p class="shop-intro fade" id="shop-intro-text">
+    Handgefertigter Schmuck aus München Neuhausen, der Deine innere Stärke weckt und ausdrückt. Entdecke unsere drei Kollektionen Hearts, Pearls und Nature, die unterschiedliche Schwerpunkte setzen.
+  </p>
+</div>
+
+
+<!-- ═══════════ PRODUCT GRID ═══════════ -->
+<!--
+  BILDER:
+  Jedes Produkt braucht zwei Bilder im Ordner  images/shop/ :
+    img-primary  →  wird standardmäßig angezeigt    →  src="images/shop/NAME-a.jpg"
+    img-hover    →  erscheint beim Darüberfahren     →  src="images/shop/NAME-b.jpg"
+-->
+<div class="product-grid">
+
+  <!-- 1 · Hearts -->
+  <a href="product_miniheartsbraceletgold.html" class="product-card fade" data-category="hearts">
+    <div class="product-img-wrap">
+      <img class="img-primary" src="images/shop/hearts/bracelet_minihearts_gold/bracelet_minihearts_gold_plain.webp"  alt="Mini Hearts Bracelet Gold" />
+      <img class="img-hover"   src="images/shop/hearts/bracelet_minihearts_gold/bracelet_minihearts_gold_detail.webp"  alt="Heart Earring Gold Detail" />
+    </div>
+    <div class="product-info">
+      <p class="product-name">Mini Hearts Bracelet Gold</p>
+      <p class="product-price"><span class="now">€ 39,00</span></p>
+    </div>
+  </a>
+
+  <!-- 2 · Nature -->
+  <a href="product_necklacebee.html" class="product-card fade" data-category="fauna">
+    <div class="product-img-wrap">
+      <img class="img-primary" src="images/shop/fauna/necklace_bee/necklace_bee_plain.webp"  alt="Buzzing Necklace" />
+      <img class="img-hover"   src="images/shop/fauna/necklace_bee/necklace_bee_detail.webp"  alt="Pearl Drop Earring Detail" />
+    </div>
+    <div class="product-info">
+      <p class="product-name">Buzzing Necklace</p>
+      <p class="product-price"><span 
+        <span class="was">€ 49,00</span>
+        <span class="now">€ 39,00</span>
+    </div>
+  </a>
+
+  <!-- 3 · Nature -->
+  <a href="product_necklaceflowers.html" class="product-card fade" data-category="flora">
+    <div class="product-img-wrap">
+      <img class="img-primary" src="images/shop/flora/necklace_flowers/necklace_flowers_plain.webp"    alt="Blossom Triplet Necklace" />
+      <img class="img-hover"   src="images/shop/flora/necklace_flowers/necklace_flowers_detail.webp"    alt="Blossom Triplet Necklace Detail" />
+    </div>
+    <div class="product-info">
+      <p class="product-name">Blossom Triplet Necklace</p>
+      <p class="product-price"><span 
+        <span class="was">€ 49,00</span>
+        <span class="now">€ 39,00</span>
+    </div>
+  </a>
+
+  <!-- 4 · Hearts -->
+  <a href="product_necklacebigpearl.html" class="product-card fade" data-category="fauna">
+    <div class="product-img-wrap">
+      <img class="img-primary" src="images/shop/fauna/necklace_bigpearl/necklace_bigpearl_plain.webp"       alt="Glow Necklace" />
+      <img class="img-hover"   src="images/shop/fauna/necklace_bigpearl/necklace_bigpearl_detail.webp"       alt="Glow Necklace Detail" />
+    </div>
+    <div class="product-info">
+      <p class="product-name">Glow Necklace</p>
+      <p class="product-price">
+        <span class="now">€ 49,00</span>
+      </p>
+    </div>
+  </a>
+
+  <!-- 5 · Pearls -->
+  <a href="product_braceletflower.html" class="product-card fade" data-category="flora">
+    <div class="product-img-wrap">
+      <img class="img-primary" src="images/shop/flora/bracelet_flower/bracelet_flower_plain.webp"      alt="Pearl Bracelet" />
+      <img class="img-hover"   src="images/shop/flora/bracelet_flower/bracelet_flower_detail.webp"      alt="Pearl Bracelet Detail" />
+    </div>
+    <div class="product-info">
+      <p class="product-name">Blossom Bracelet</p>
+      <p class="product-price"><span class="now">€ 39,00</span></p>
+    </div>
+  </a>
+
+  <!-- 6 · Nature -->
+  <a href="product_miniheartsbraceletsilver.html" class="product-card fade" data-category="hearts">
+    <div class="product-img-wrap">
+      <img class="img-primary" src="images/shop/hearts/bracelet_minihearts_silver/bracelet_minihearts_silver_plain.webp"        alt="Mini Hearts Bracelet Silver" />
+      <img class="img-hover"   src="images/shop/hearts/bracelet_minihearts_silver/bracelet_minihearts_silver_detail.webp"        alt="Mini Hearts Bracelet Silver" />
+    </div>
+    <div class="product-info">
+      <p class="product-name">Mini Hearts Bracelet Silver</p>
+      <p class="product-price"><span class="now">€ 39,00</span></p>
+    </div>
+  </a>
+
+  <!-- 7 · Hearts -->
+  <a href="product_necklaceheart.html" class="product-card fade" data-category="hearts">
+    <div class="product-img-wrap">
+      <img class="img-primary" src="images/shop/hearts/necklace_heart/necklace_heart_plain.webp"   alt="Amor Necklace" />
+      <img class="img-hover"   src="images/shop/hearts/necklace_heart/necklace_heart_detail.webp"   alt="Amor Necklace Detail" />
+    </div>
+    <div class="product-info">
+      <p class="product-name">Amor Necklace</p>
+      <p class="product-price"><span class="now">€ 39,00</span></p>
+    </div>
+  </a>
+
+  <!-- 8 · Pearls -->
+  <a href="product_miniheartsnecklacegold.html" class="product-card fade" data-category="hearts">
+    <div class="product-img-wrap">
+      <img class="img-primary" src="images/shop/hearts/necklace_minihearts_gold/necklace_minihearts_gold_plain.webp"        alt="Mini Hearts Necklace Silver" />
+      <img class="img-hover"   src="images/shop/hearts/necklace_minihearts_gold/necklace_minihearts_gold_detail.webp"        alt="Mini Hearts Necklace Gold" />
+    </div>
+    <div class="product-info">
+      <p class="product-name">Mini Hearts Necklace Gold</p>
+      <p class="product-price"><span class="now">€ 59,00</span></p>
+    </div>
+  </a>
+
+  <!-- 9 · Nature -->
+  <a href="product_earringsflower.html" class="product-card fade" data-category="flora">
+    <div class="product-img-wrap">
+      <img class="img-primary" src="images/shop/flora/earrings_flower/earrings_flower_plain.webp"     alt="Floral Drop Necklace" />
+      <img class="img-hover"   src="images/shop/flora/earrings_flower/earrings_flower_detail.webp"     alt="Floral Drop Necklace Detail" />
+    </div>
+    <div class="product-info">
+      <p class="product-name">Blossom Earrings</p>
+      <p class="product-price"><span class="now">€ 39,00</span></p>
+      </p>
+    </div>
+  </a>
+
+  <!-- 10 · Hearts -->
+  <a href="product_necklaceseashell.html" class="product-card fade" data-category="fauna">
+    <div class="product-img-wrap">
+      <img class="img-primary" src="images/shop/fauna/necklace_seashell/necklace_seashell_plain.webp"   alt="Shield Necklace" />
+      <img class="img-hover"   src="images/shop/fauna/necklace_seashell/necklace_seashell_detail.webp"   alt="Shield Necklace Detail" />
+    </div>
+    <div class="product-info">
+      <p class="product-name">Shield Necklace</p>
+      <p class="product-price"><span class="now">€ 49,00</span></p>
+    </div>
+  </a>
+
+  <!-- 11 · Pearls -->
+  <a href="product_necklacepearlsbee.html" class="product-card fade" data-category="fauna">
+    <div class="product-img-wrap">
+      <img class="img-primary" src="images/shop/fauna/necklace_pearlsbee/necklace_pearlsbee_plain.webp"        alt="Metamorphosis Necklace" />
+      <img class="img-hover"   src="images/shop/fauna/necklace_pearlsbee/necklace_pearlsbee_detail.webp"        alt="Metamorphosis Necklace Detail" />
+    </div>
+    <div class="product-info">
+      <p class="product-name">Metamorphosis Necklace</p>
+      <p class="product-price"><span class="now">€ 59,00</span></p>
+    </div>
+  </a>
+
+  <!-- 12 · Nature -->
+  <a href="product_necklacepearlsflower.html" class="product-card fade" data-category="flora">
+    <div class="product-img-wrap">
+      <img class="img-primary" src="images/shop/flora/necklace_pearlsflower/necklace_pearlsflower_plain.webp"     alt="Blossom Necklace" />
+      <img class="img-hover"   src="images/shop/flora/necklace_pearlsflower/necklace_pearlsflower_detail.webp"     alt="Blossom Necklace Detail" />
+    </div>
+    <div class="product-info">
+      <p class="product-name">Blossom Necklace</p>
+      <p class="product-price">
+      <p class="product-price"><span class="now">€ 59,00</span></p>
+      </p>
+    </div>
+  </a>
+
+  <!-- 13 · Nature -->
+  <a href="product_miniheartsnecklacesilver.html" class="product-card fade" data-category="hearts">
+    <div class="product-img-wrap">
+      <img class="img-primary" src="images/shop/hearts/necklace_minihearts_silver/necklace_minihearts_silver_plain.webp"     alt="Floral Drop Necklace" />
+      <img class="img-hover"   src="images/shop/hearts/necklace_minihearts_silver/necklace_minihearts_silver_detail.webp"     alt="Mini Hearts Necklace Silver" />
+    </div>
+    <div class="product-info">
+      <p class="product-name">Mini Hearts Necklace Silver</p>
+      <p class="product-price">
+      <p class="product-price"><span class="now">€ 59,00</span></p>
+      </p>
+    </div>
+  </a>
+
+</div><!-- /product-grid -->
+
+
+<!-- ═══════════ CONTACT – GET IN TOUCH (wie index.html) ═══════════ -->
+<section id="contact">
+  <div class="contact-left">
+    <div class="bg-hl fade">get in<br>touch</div>
+  </div>
+  <div class="contact-right">
+    <form id="contact-form" class="contact-form fade" action="https://formspree.io/f/mzdolwyp" method="POST">
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" name="name" required>
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" name="_replyto" required>
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea name="message" rows="3" required></textarea>
+      </div>
+
+      <input type="text" name="_gotcha" style="display:none">
+
+      <button id="form-submit" type="submit" class="pill">
+        Absenden
+        <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M2 6h8M6 2l4 4-4 4"/>
+        </svg>
+      </button>
+
+      <p id="form-status" style="margin-top:1.5rem; font-size:.8rem; display:none;"></p>
+    </form>
+  </div>
+</section>
+
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer>
+  <p class="foot-copy">© 2026, Fioretta Jewelry</p>
+  <div class="foot-links">
+    <a href="https://www.instagram.com/fioretta.jewelry" target="_blank" class="foot-insta">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="2" y="2" width="20" height="20" rx="5.5"/>
+        <circle cx="12" cy="12" r="4"/>
+        <circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"/>
+      </svg>
+    </a>
+    <a href="impressum.html">Impressum</a>
+  </div>
+</footer>
+
+
+<script>
+  /* ── Scroll-Fade ── */
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade').forEach(el => observer.observe(el));
+
+  /* ── Intro-Texte je Kollektion ──
+     Passe diese Texte nach Belieben an. */
+  const introTexts = {
+    all:    'Handgefertigter Schmuck, der Deine innere Stärke weckt. Entdecke unsere drei Kollektionen.',
+    hearts: 'Etwas für Herz. Und für jeden Tag. Zart, zeitlos und mit viel Liebe handgefertigt.',
+    flora: 'Blühe auf – und meistere Deinen Alltag mit blumiger Leichtigkeit.',
+    fauna: 'Inspiriert von der Tierwelt: Formen, die Dir in jedem Augenblicks Stärke verleihen.'
+  };
+
+  /* ── Category Filter ── */
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const cards      = document.querySelectorAll('.product-card');
+  const introEl    = document.getElementById('shop-intro-text');
+
+  /* Zentrale Funktion: Filter setzen (wird sowohl bei Klick als auch beim
+     Seiten-Load via URL-Parameter aufgerufen) */
+  function applyFilter(filter) {
+    const valid = ['all', 'hearts', 'flora', 'fauna'];
+    if (!valid.includes(filter)) filter = 'all';
+
+    filterBtns.forEach(b => {
+      b.classList.toggle('active', b.dataset.filter === filter);
+    });
+
+    cards.forEach(card => {
+      const show = filter === 'all' || card.dataset.category === filter;
+      card.classList.toggle('hidden', !show);
+    });
+
+    introEl.textContent = introTexts[filter] || introTexts.all;
+  }
+
+  /* Klick-Handler */
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => applyFilter(btn.dataset.filter));
+  });
+
+  /* ── URL-Parameter beim Laden auslesen ──────────────────────────────────
+     Links auf der Home-Seite müssen so aufgebaut sein:
+       shop.html?collection=hearts
+       shop.html?collection=flora
+       shop.html?collection=fauna
+       shop.html               ← zeigt All Collections
+     Beispiel-Link für index.html:
+       <a href="shop.html?collection=hearts">Hearts entdecken</a>
+  ─────────────────────────────────────────────────────────────────────── */
+  const urlParams  = new URLSearchParams(window.location.search);
+  const startFilter = urlParams.get('collection') || 'all';
+  applyFilter(startFilter);
+
+  /* ── Kontaktformular (AJAX) ── */
+  const form   = document.getElementById('contact-form');
+  const status = document.getElementById('form-status');
+  const button = document.getElementById('form-submit');
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    button.style.opacity = '0.5';
+    button.innerHTML = 'Sende...';
+    fetch(event.target.action, {
+      method: form.method,
+      body: new FormData(event.target),
+      headers: { 'Accept': 'application/json' }
+    }).then(response => {
+      if (response.ok) {
+        status.style.display = 'block';
+        status.style.color = '#7a6e64';
+        status.innerHTML = 'Vielen Dank! Deine Nachricht wurde erfolgreich verschickt.';
+        form.reset();
+        button.style.display = 'none';
+      } else {
+        response.json().then(data => {
+          status.style.display = 'block';
+          status.style.color = 'red';
+          status.innerHTML = data.errors
+            ? data.errors.map(e => e.message).join(', ')
+            : 'Hoppla! Da gab es ein Problem beim Senden.';
+        });
+      }
+    }).catch(() => {
+      status.style.display = 'block';
+      status.style.color = 'red';
+      status.innerHTML = 'Hoppla! Es gab ein Verbindungsproblem.';
+    });
+  }
+  form.addEventListener('submit', handleSubmit);
+</script>
+
+</body>
+</html>
